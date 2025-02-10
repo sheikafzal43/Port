@@ -1,0 +1,89 @@
+/* Previous animations remain the same */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+.float-animation { animation: float 3s ease-in-out infinite; }
+
+.skill-progress { transition: width 1.5s ease-out; }
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(80, 250, 123, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    pointer-events: none;
+}
+.portfolio-item:hover::before { animation: shine 1.5s; }
+@keyframes shine {
+    0% { transform: rotate(45deg) translateX(-150%); }
+    100% { transform: rotate(45deg) translateX(150%); }
+}
+
+/*Contact*/
+@keyframes pulse-glow {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.2; }
+}
+
+.animate-pulse {
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.social-dot {
+    transform: translateZ(30px);
+    transition: all 0.3s ease;
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.rotate-y-12 {
+    transform: rotateY(12deg);
+}
+
+#socialSphere:hover {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+    transform: translateY(-24px) scale(0.8);
+    color: #4ade80;
+}
+
+.peer:focus ~ label,
+.peer:not(:placeholder-shown) ~ label {
+    transform: translateY(-1rem) scale(0.75);
+    color: rgb(74 222 128);
+}
+
+input, textarea {
+    min-height: 2.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
